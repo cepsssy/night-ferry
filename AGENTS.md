@@ -23,6 +23,8 @@ Co-op shift-sim for 2–4 players: crew a ferry by day, fix anomalies at night.
 
 File suffixes: `.server.luau` = Script, `.client.luau` = LocalScript, `.luau` = ModuleScript.
 
+`Packages/` is not mapped in `default.project.json` yet because there are no runtime dependencies. Add `{ "$path": "Packages" }` under `ReplicatedStorage` when the first one lands.
+
 ## Commands
 
 ```powershell
