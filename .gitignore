@@ -1,0 +1,16 @@
+# Generated
+/Packages/
+/DevPackages/
+/sourcemap.json
+/globalTypes.d.luau
+/build/
+
+# Roblox place files (source of truth is src/)
+*.rbxl
+*.rbxlx
+
+# Blender backups
+*.blend1
+
+# Agent scratch
+.superpowers/

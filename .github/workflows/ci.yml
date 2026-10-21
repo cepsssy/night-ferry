@@ -1,0 +1,46 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rokit
+        shell: pwsh
+        run: |
+          Invoke-RestMethod https://raw.githubusercontent.com/rojo-rbx/rokit/main/scripts/install.ps1 | Invoke-Expression
+          "$env:USERPROFILE\.rokit\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+
+      - name: Trust and install tools
+        run: |
+          rokit trust rojo-rbx/rojo UpliftGames/wally JohnnyMorganz/StyLua Kampfkarren/selene JohnnyMorganz/luau-lsp lune-org/lune
+          rokit install
+
+      - name: Install packages
+        run: wally install
+
+      - name: Lint
+        run: selene src
+
+      - name: Format check
+        run: stylua --check src
+
+      - name: Type check
+        shell: pwsh
+        run: |
+          Invoke-WebRequest "https://luau-lsp.pages.dev/type-definitions/globalTypes.None.d.luau" -OutFile globalTypes.d.luau
+          rojo sourcemap default.project.json -o sourcemap.json
+          luau-lsp analyze --sourcemap=sourcemap.json --definitions=globalTypes.d.luau src
+
+      - name: Build place
+        run: rojo build default.project.json -o NightFerry.rbxl
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: NightFerry-place
+          path: NightFerry.rbxl

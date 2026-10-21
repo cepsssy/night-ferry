@@ -1,0 +1,14 @@
+{
+	"name": "NightFerryTests",
+	"tree": {
+		"$className": "DataModel",
+		"ReplicatedStorage": {
+			"Shared": { "$path": "src/shared" },
+			"Packages": { "$path": "DevPackages" }
+		},
+		"ServerScriptService": {
+			"Server": { "$path": "src/server" },
+			"Tests": { "$path": "tests" }
+		}
+	}
+}
