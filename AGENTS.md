@@ -56,3 +56,17 @@ If a tool is not found, prepend `$env:USERPROFILE\.rokit\bin` to `PATH`.
 ```
 
 This builds the test place, runs it in Studio via `--task RunScript`, and fails unless `[NightFerry] e2e tests passed` appears. Manual Play mode uses `tests/run.server.luau` and also prints `[NightFerry] tests passed`.
+
+## Agent skills
+
+### Issue tracker
+
+Issues and specs live as markdown files under `.scratch/<feature>/`. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Default five roles: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: `GLOSSARY.md` and `docs/adr/` at the repo root. See `docs/agents/domain.md`.
