@@ -14,7 +14,17 @@ Sudah jalan dan diverifikasi:
 - CI statis: `.github/workflows/ci.yml` (lint, format, type check, build, artifact).
 - Skill project: `.opencode/skills/roblox-dev-loop`, `.opencode/skills/roblox-anomaly-authoring`.
 
-Yang belum: koneksi Studio MCP, verifikasi CI setelah push, publish place, dan test di CI.
+Yang belum: koneksi Studio MCP, publish place, dan test di CI.
+
+## Verifikasi terakhir (2026-10-21)
+
+- `scripts/check.ps1`: pass (Selene, StyLua, luau-lsp, build).
+- `scripts/e2e.ps1`: `1 passed, 1 total` + `[NightFerry] e2e tests passed`.
+- CI run `39585863877` (commit `40d7d2a`): **success**.
+- Artifact CI: `NightFerry-place` (1.067 byte, belum kedaluwarsa).
+- Studio MCP: **belum connected**; `opencode mcp list` gagal karena `mcp.bat` belum ada.
+
+Artifact CI bisa diunduh dari halaman run di GitHub. Download lewat CLI butuh `gh auth login`; lewat browser tidak.
 
 ---
 
@@ -224,6 +234,7 @@ Skill yang tersedia:
 | Wally package tidak ditemukan | dev-deps ada di `DevPackages` | `test.project.json` memetakan `DevPackages` sebagai `Packages` |
 | CI gagal di `rokit install` | tool belum di-trust | pastikan langkah `rokit trust ...` ada sebelum `rokit install` |
 | File generated ter-commit | `.gitignore` kurang | cek `git status`; jangan commit `Packages/`, `DevPackages/`, `build/`, `sourcemap.json`, `globalTypes.d.luau` |
+| CI gagal di `stylua --check` | checkout Windows mengubah LF ke CRLF | `.gitattributes` sudah memaksa `eol=lf`; jangan hapus |
 
 ---
 
