@@ -19,9 +19,8 @@ Yang belum: koneksi Studio MCP, publish place, dan test di CI.
 ## Verifikasi terakhir (2026-10-21)
 
 - `scripts/check.ps1`: pass (Selene, StyLua, luau-lsp, build).
-- `scripts/e2e.ps1`: `1 passed, 1 total` + `[NightFerry] e2e tests passed`.
-- CI run `39585863877` (commit `40d7d2a`): **success**.
-- Artifact CI: `NightFerry-place` (1.067 byte, belum kedaluwarsa).
+- `scripts/e2e.ps1`: `3 passed, 3 total` + `[NightFerry] e2e tests passed`.
+- CI: **success**; artifact `NightFerry-place` tersedia di halaman run terbaru.
 - Studio MCP: **belum connected**; `opencode mcp list` gagal karena `mcp.bat` belum ada.
 
 Artifact CI bisa diunduh dari halaman run di GitHub. Download lewat CLI butuh `gh auth login`; lewat browser tidak.
@@ -144,7 +143,7 @@ Output sukses yang diharapkan:
   ✓ adds 1 + 1
 
 Test Suites: 1 passed, 1 total
-Tests:       1 passed, 1 total
+Tests:       3 passed, 3 total
 [NightFerry] e2e tests passed
 ```
 
