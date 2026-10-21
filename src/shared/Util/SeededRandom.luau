@@ -13,4 +13,8 @@ function SeededRandom.NextInteger(self: SeededRandom, min: number, max: number):
 	return self._random:NextInteger(min, max)
 end
 
+function SeededRandom.NextNumber(self: SeededRandom, min: number, max: number): number
+	return self._random:NextNumber(min, max)
+end
+
 return SeededRandom
