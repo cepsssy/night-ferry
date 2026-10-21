@@ -34,10 +34,12 @@ rojo sourcemap default.project.json --watch -o sourcemap.json
 ## Tests
 
 ```powershell
-rojo build test.project.json -o build/NightFerryTests.rbxl
+.\scripts\e2e.ps1
 ```
 
-Open the built place, press Play, and check Output for `[NightFerry] tests passed`.
+This builds the test place, launches Studio headlessly via `--task RunScript`, runs Jest Roblox, and exits non-zero unless `[NightFerry] e2e tests passed` appears.
+
+Manual Play mode is also available: build `test.project.json`, open the place, press Play, and check Output.
 
 ## Studio MCP
 

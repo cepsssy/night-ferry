@@ -13,7 +13,7 @@ if (-not (Test-Path $defs)) {
 New-Item -ItemType Directory -Force build | Out-Null
 
 rojo sourcemap default.project.json -o sourcemap.json
-selene src
-stylua --check src
+selene src tests scripts/e2e.luau
+stylua --check src tests scripts/e2e.luau
 luau-lsp analyze --sourcemap=sourcemap.json --definitions=$defs src
 rojo build default.project.json -o build/NightFerry.rbxl

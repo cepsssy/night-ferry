@@ -52,7 +52,7 @@ If a tool is not found, prepend `$env:USERPROFILE\.rokit\bin` to `PATH`.
 ## Testing
 
 ```powershell
-rojo build test.project.json -o build/NightFerryTests.rbxl
+.\scripts\e2e.ps1
 ```
 
-Open the built place, press Play, and read the Output window. `tests/spec.server.luau` runs Jest Roblox and prints `[NightFerry] tests passed`.
+This builds the test place, runs it in Studio via `--task RunScript`, and fails unless `[NightFerry] e2e tests passed` appears. Manual Play mode uses `tests/run.server.luau` and also prints `[NightFerry] tests passed`.
